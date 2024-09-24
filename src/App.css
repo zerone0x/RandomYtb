@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.video-container {
+  width: 90vw; 
+  max-width: calc(100vh * (16 / 9)); 
+  height: calc(90vw * (9 / 16)); 
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 100px;
+}
