@@ -3,7 +3,7 @@ import './App.css';
 
 
 function fetchVideoIds(channelId, apiKey) {
-  return fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=20`)
+  return fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50`)
     .then(response => response.json())
     .then(data => data.items.map(item => item.id.videoId));
 }
