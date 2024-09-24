@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 import { videoIds } from '../utils/data';
 
 function getRandomVideoId() {
