@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-.button-container {
+.flex-center {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -25,19 +25,43 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  font-size: 100px;
 }
 
-.button-container button {
-  font-size: 30px;
-}
-
-.button-container button:hover {
+button:hover {
   transform: scale(1.1);
 }
 
-.button-container button:disabled {
+button:disabled {
   cursor: no-drop;
+}
+
+.button-container,
+.btn-range-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.random-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.button-container button,
+button {
+  font-size: 30px;
+}
+
+.btn-range-container button {
+  font-size: 20px;
+}
+
+.spin-button {
+  font-size: 100px;
 }
 
 .video-container {

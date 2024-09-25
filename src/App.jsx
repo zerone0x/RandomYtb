@@ -2,7 +2,6 @@ import "./App.css";
 import RandomYouTubePlayer from "./components/RandomYouTubePlayer";
 import { useState } from "react";
 
-
 function App() {
   const [channel, setChannel] = useState("curb");
 

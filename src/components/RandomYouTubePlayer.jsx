@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import { lukeIds, curbIds, curbWorldIds, lukeChannelId, curbChannelId } from "../utils/data";
+import {
+  lukeIds,
+  curbIds,
+  curbWorldIds,
+  lukeChannelId,
+  curbChannelId,
+} from "../utils/data";
 
-const apiKey = '';
+const apiKey = "";
 const channelId = curbChannelId;
 function fetchVideoIds(channelId, apiKey) {
   return fetch(
@@ -17,18 +23,48 @@ function getRandomVideoId(videoIds) {
   return videoIds[Math.floor(Math.random() * videoIds.length)];
 }
 
+function splitArrayIntoThreeParts(arr) {
+  arr = arr.reverse();
+  const n = arr.length;
+  const size = Math.floor(n / 3);
+  const remainder = n % 3;
+  const parts = [];
+  let start = 0;
+
+  for (let i = 0; i < 3; i++) {
+    const end = start + size + (i < remainder ? 1 : 0);
+    parts.push(arr.slice(start, end));
+    start = end;
+  }
+
+  return parts;
+}
+
 function RandomYouTubePlayer({ channel }) {
   const [videoId, setVideoId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [parts, setParts] = useState([]);
 
   const handleClick = () => {
     setVideoId(getRandomVideoId(channel === "luke" ? lukeIds : larryIds));
+  };
+  const handleEarlier = () => {
+    setVideoId(getRandomVideoId(parts[0]));
+  };
+  const handleMid = () => {
+    setVideoId(getRandomVideoId(parts[1]));
+  };
+
+  const handleLater = () => {
+    const laterPart = parts[2];
+    setVideoId(getRandomVideoId(laterPart));
   };
 
   useEffect(() => {
     // Fetch videos from the channel
     // fetchVideoIds(channelId, apiKey)
     setIsLoading(true);
+    setParts(splitArrayIntoThreeParts(channel === "luke" ? lukeIds : larryIds));
     setVideoId(getRandomVideoId(channel === "luke" ? lukeIds : larryIds));
     setIsLoading(false);
   }, [channel]);
@@ -45,7 +81,17 @@ function RandomYouTubePlayer({ channel }) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
-      <button onClick={handleClick}>🎲</button>
+      <div className="btn-range-container">
+        <button onClick={handleEarlier}>Earlier</button>
+        <button onClick={handleMid}>Mid</button>
+        <button onClick={handleLater}>Later</button>
+      </div>
+      <div className="random-btn-container">
+        <span>All range👇</span>
+        <button onClick={handleClick} className="spin-button">
+          🎲
+        </button>
+      </div>
     </section>
   );
 }
