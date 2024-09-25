@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { lukeIds, curbIds, curbWorldIds, lukeChannelId, curbChannelId } from "../utils/data";
 
-// const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-const channelId = lukeChannelId;
+const apiKey = '';
+const channelId = curbChannelId;
 function fetchVideoIds(channelId, apiKey) {
   return fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CGQQAA`,
+    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CJADEAA`,
   )
     .then((response) => response.json())
     .then((data) => data.items.map((item) => item.id.videoId))
