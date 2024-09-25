@@ -103,3 +103,18 @@ export const curbIds = [
   "DC8vi2fKEFE",
   "WCHsYwtfNKg",
 ];
+
+export const curbWorldIds = [
+  "3IJeyb1BPlY",
+  "FxiTzMeDCDM",
+  "rbxl74syRDM",
+  "T5suMQK-I2c",
+  "NGZ0GvpbQXc",
+  "Q4KHAv3I6z0",
+  "SF4QBzEL09Y",
+  "9451nRW-QfQ",
+  "EHT4bRkgvko",
+  "cDwmN8uiHtU",
+  "qzMQniGRVnM",
+  "PmPiogwc8Uk",
+];
