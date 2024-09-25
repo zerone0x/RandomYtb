@@ -3,7 +3,7 @@ import RandomYouTubePlayer from "./components/RandomYouTubePlayer";
 import { useState } from "react";
 
 function App() {
-  const [channel, setChannel] = useState("luke");
+  const [channel, setChannel] = useState("curb");
 
   return (
     <div className="App">
