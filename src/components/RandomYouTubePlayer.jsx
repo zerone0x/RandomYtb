@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { lukeIds, curbIds, curbWorldIds } from "../utils/data";
 
-// const apiKey = '';
-// const channelId = 'UC_ZSSArkyEC8x_tV5Vs4WKA';
-// function fetchVideoIds(channelId, apiKey) {
-//   return fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=12`)
-//     .then(response => response.json())
-//     .then(data => data.items.map(item => item.id.videoId))
-//     .then(data =>console.log(data));
-// }
+const apiKey = "AIzaSyAxakjXDPwckqnkeaPA6K3sABw9-_E_W8w";
+const channelId = "UCQZDGOgQ6usflGv1g8Jlf0w";
+function fetchVideoIds(channelId, apiKey) {
+  return fetch(
+    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CJYBEAA`,
+  )
+    .then((response) => response.json())
+    .then((data) => data.items.map((item) => item.id.videoId))
+    .then((data) => console.log(data));
+}
 const larryIds = [...curbIds, ...curbWorldIds];
 function getRandomVideoId(videoIds) {
   return videoIds[Math.floor(Math.random() * videoIds.length)];
