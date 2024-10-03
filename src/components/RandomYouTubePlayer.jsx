@@ -40,24 +40,28 @@ function splitArrayIntoThreeParts(arr) {
   return parts;
 }
 
-function RandomYouTubePlayer({ channel }) {
+function RandomYouTubePlayer({ channel, setRange, range }) {
   const [videoId, setVideoId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [parts, setParts] = useState([]);
 
   const handleClick = () => {
     setVideoId(getRandomVideoId(channel === "luke" ? lukeIds : larryIds));
+    setRange("all");
   };
   const handleEarlier = () => {
     setVideoId(getRandomVideoId(parts[0]));
+    setRange("earlier");
   };
   const handleMid = () => {
     setVideoId(getRandomVideoId(parts[1]));
+    setRange("mid");
   };
 
   const handleLater = () => {
     const laterPart = parts[2];
     setVideoId(getRandomVideoId(laterPart));
+    setRange("later");
   };
 
   useEffect(() => {
@@ -82,9 +86,24 @@ function RandomYouTubePlayer({ channel }) {
         allowFullScreen
       />
       <div className="btn-range-container">
-        <button onClick={handleEarlier}>Earlier</button>
-        <button onClick={handleMid}>Mid</button>
-        <button onClick={handleLater}>Later</button>
+        <button
+          onClick={handleEarlier}
+          className={range === "earlier" ? "tab-active" : ""}
+        >
+          Earlier
+        </button>
+        <button
+          onClick={handleMid}
+          className={range === "mid" ? "tab-active" : ""}
+        >
+          Mid
+        </button>
+        <button
+          onClick={handleLater}
+          className={range === "later" ? "tab-active" : ""}
+        >
+          Later
+        </button>
       </div>
       <div className="random-btn-container">
         <span>All range👇</span>
