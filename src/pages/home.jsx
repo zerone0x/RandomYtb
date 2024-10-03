@@ -1,29 +1,20 @@
 import "../App.css";
 import RandomYouTubePlayer from "../components/RandomYouTubePlayer";
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ThemeContext } from "../data/getTheme";
-import { darkTheme, lightTheme } from "../utils/data";
+import Theme from "../components/Theme";
+import { debounce } from "../utils/util";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
-  const { theme, setTheme } = useContext(ThemeContext);
   const [channel, setChannel] = useState("curb");
   const [range, setRange] = useState("all");
 
-  useEffect(() => {
-    const themeVariables = theme === "light" ? lightTheme : darkTheme;
-    for (const key in themeVariables) {
-      document.documentElement.style.setProperty(key, themeVariables[key]);
-    }
-  }, [theme]);
   return (
     <div className="Home">
-      <button
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="theme-toggle"
-      >
-        {theme === "light" ? "🌙" : "🌞"}
-      </button>
+      {/* <ToastContainer /> */}
+      <Theme />
       <Helmet>
         <title>Random YouTube Player</title>
         <meta
@@ -52,20 +43,20 @@ function Home() {
         <h2>Channels👇</h2>
         <div className="button-container">
           <button
-            onClick={() => {
+            onClick={debounce(() => {
               setChannel("luke");
               setRange("all");
-            }}
+            }, 3000)}
             className={channel === "luke" ? "tab-active" : ""}
             disabled={channel === "luke"}
           >
             Luke
           </button>
           <button
-            onClick={() => {
+            onClick={debounce(() => {
               setChannel("curb");
               setRange("all");
-            }}
+            }, 3000)}
             className={channel === "curb" ? "tab-active" : ""}
             disabled={channel === "curb"}
           >

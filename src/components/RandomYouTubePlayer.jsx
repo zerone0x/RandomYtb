@@ -7,6 +7,7 @@ import {
   lukeChannelId,
   curbChannelId,
 } from "../utils/data";
+import { debounce } from "../utils/util";
 
 const apiKey = "";
 const channelId = curbChannelId;
@@ -87,19 +88,19 @@ function RandomYouTubePlayer({ channel, setRange, range }) {
       />
       <div className="btn-range-container">
         <button
-          onClick={handleEarlier}
+          onClick={debounce(handleEarlier, 3000)}
           className={range === "earlier" ? "tab-active" : ""}
         >
           Earlier
         </button>
         <button
-          onClick={handleMid}
+          onClick={debounce(handleMid, 3000)}
           className={range === "mid" ? "tab-active" : ""}
         >
           Mid
         </button>
         <button
-          onClick={handleLater}
+          onClick={debounce(handleLater, 3000)}
           className={range === "later" ? "tab-active" : ""}
         >
           Later
@@ -107,7 +108,7 @@ function RandomYouTubePlayer({ channel, setRange, range }) {
       </div>
       <div className="random-btn-container">
         <span>All range👇</span>
-        <button onClick={handleClick} className="spin-button">
+        <button onClick={debounce(handleClick, 3000)} className="spin-button">
           🎲
         </button>
       </div>
