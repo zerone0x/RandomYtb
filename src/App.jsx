@@ -31,33 +31,45 @@ function App() {
         />
         <meta property="og:site_name" content="Random YouTube Player" />
       </Helmet>
-      <div className="button-container">
-        <button
-          onClick={() => {
-            setChannel("luke");
-            setRange("all");
-          }}
-          className={channel === "luke" ? "tab-active" : ""}
-          disabled={channel === "luke"}
-        >
-          Luke
-        </button>
-        <button
-          onClick={() => {
-            setChannel("curb");
-            setRange("all");
-          }}
-          className={channel === "curb" ? "tab-active" : ""}
-          disabled={channel === "curb"}
-        >
-          Curb
-        </button>
+      <>
+        <h1>Random YouTube Player</h1>
+        <h2>Channels👇</h2>
+        <div className="button-container">
+          <button
+            onClick={() => {
+              setChannel("luke");
+              setRange("all");
+            }}
+            className={channel === "luke" ? "tab-active" : ""}
+            disabled={channel === "luke"}
+          >
+            Luke
+          </button>
+          <button
+            onClick={() => {
+              setChannel("curb");
+              setRange("all");
+            }}
+            className={channel === "curb" ? "tab-active" : ""}
+            disabled={channel === "curb"}
+          >
+            Curb
+          </button>
+        </div>
+        <RandomYouTubePlayer
+          channel={channel}
+          setRange={setRange}
+          range={range}
+        />
+      </>
+      <div className="footer">
+        <span>
+          issues? contact me:{" "}
+          <a href="https://github.com/zerone0x/RandomYtb/issues">
+            Github issues
+          </a>
+        </span>
       </div>
-      <RandomYouTubePlayer
-        channel={channel}
-        setRange={setRange}
-        range={range}
-      />
     </div>
   );
 }
