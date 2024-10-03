@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Theme from "../components/Theme";
 import { debounce } from "../utils/util";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Home() {

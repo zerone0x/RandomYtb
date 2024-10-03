@@ -9,6 +9,9 @@
   background-color: var(--background-color);
   color: var(--text-color);
 }
+.Toastify__toast--info {
+  background-color: var(--background-color) !important;
+}
 
 .Home {
   display: flex;
