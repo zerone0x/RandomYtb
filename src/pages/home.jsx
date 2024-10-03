@@ -14,7 +14,7 @@ function Home() {
   return (
     <div className="Home">
       {/* <ToastContainer /> */}
-      <Theme />
+
       <Helmet>
         <title>Random YouTube Player</title>
         <meta
@@ -77,6 +77,7 @@ function Home() {
           </a>
         </span>
       </div>
+      <Theme />
     </div>
   );
 }
