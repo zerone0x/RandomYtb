@@ -1,9 +1,13 @@
+:root {
+  --background-color: #fffef8;
+  --text-color: #445566;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #fffef8;
-  color: #445566;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .Home {
@@ -14,6 +18,15 @@
   min-width: 100vw;
   text-align: center;
   gap: 10px;
+}
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 h1 {

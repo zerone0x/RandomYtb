@@ -1,5 +1,14 @@
 export const lukeChannelId = "UC2eYFnH61tmytImy1mTYvhA";
 export const curbChannelId = "UCQZDGOgQ6usflGv1g8Jlf0w";
+export const lightTheme = {
+  "--background-color": "#fffef8",
+  "--text-color": "#445566",
+};
+
+export const darkTheme = {
+  "--background-color": "#333333",
+  "--text-color": "#ffffff",
+};
 // CJYBEAA
 export const lukeIds = [
   "mVGRAD10cYs",
