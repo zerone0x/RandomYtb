@@ -5,15 +5,15 @@ import { Helmet } from "react-helmet-async";
 import Theme from "../components/Theme";
 import { debounce } from "../utils/util";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setChannel } from "../features/channel/channelSlice";
 
 function Home() {
-  const [channel, setChannel] = useState("curb");
+  const dispatch = useDispatch();
   const [range, setRange] = useState("all");
-
+  const channel = useSelector((state) => state.channel.channel);
   return (
     <div className="Home">
-      {/* <ToastContainer /> */}
-
       <Helmet>
         <title>Random YouTube Player</title>
         <meta
@@ -43,7 +43,7 @@ function Home() {
         <div className="button-container">
           <button
             onClick={debounce(() => {
-              setChannel("luke");
+              dispatch(setChannel("luke"));
               setRange("all");
             }, 3000)}
             className={channel === "luke" ? "tab-active" : ""}
@@ -53,7 +53,7 @@ function Home() {
           </button>
           <button
             onClick={debounce(() => {
-              setChannel("curb");
+              dispatch(setChannel("curb"));
               setRange("all");
             }, 3000)}
             className={channel === "curb" ? "tab-active" : ""}
@@ -62,20 +62,16 @@ function Home() {
             Curb
           </button>
         </div>
-        <RandomYouTubePlayer
-          channel={channel}
-          setRange={setRange}
-          range={range}
-        />
+        <RandomYouTubePlayer setRange={setRange} range={range} />
       </>
-      <div className="footer">
+      <footer className="footer">
         <span>
           issues? contact me:{" "}
           <a href="https://github.com/zerone0x/RandomYtb/issues">
             Github issues
           </a>
         </span>
-      </div>
+      </footer>
       <Theme />
     </div>
   );

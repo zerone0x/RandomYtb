@@ -11,6 +11,11 @@
 }
 .Toastify__toast--info {
   background-color: var(--background-color) !important;
+  border: none;
+  padding: 0;
+}
+.Toastify__toast-container {
+  padding: 0 !important;
 }
 
 .Home {

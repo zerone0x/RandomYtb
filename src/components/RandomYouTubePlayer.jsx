@@ -8,6 +8,7 @@ import {
   curbChannelId,
 } from "../utils/data";
 import { debounce } from "../utils/util";
+import { useSelector } from "react-redux";
 
 const apiKey = "";
 const channelId = curbChannelId;
@@ -41,7 +42,8 @@ function splitArrayIntoThreeParts(arr) {
   return parts;
 }
 
-function RandomYouTubePlayer({ channel, setRange, range }) {
+function RandomYouTubePlayer({ setRange, range }) {
+  const channel = useSelector((state) => state.channel.channel);
   const [videoId, setVideoId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [parts, setParts] = useState([]);
