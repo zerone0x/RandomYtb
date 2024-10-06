@@ -9,8 +9,9 @@ export const darkTheme = {
   "--background-color": "#333333",
   "--text-color": "#ffffff",
 };
+
 // CJYBEAA
-export const lukeIds = [
+const lukeIds = [
   "mVGRAD10cYs",
   "Zg9z8k8pkuM",
   "0WcrgvhO_mw",
@@ -163,7 +164,7 @@ export const lukeIds = [
   "KJadKSKA7Mg",
 ];
 
-export const curbIds = [
+const curbIds = [
   "BtR-lN5lY_4",
   "TkP2gdXhWXs",
   "oj75OoJQboE",
@@ -602,7 +603,7 @@ export const curbIds = [
 
 // CPoBEAA
 
-export const curbWorldIds = [
+const curbWorldIds = [
   "3IJeyb1BPlY",
   "FxiTzMeDCDM",
   "rbxl74syRDM",
@@ -615,4 +616,23 @@ export const curbWorldIds = [
   "cDwmN8uiHtU",
   "qzMQniGRVnM",
   "PmPiogwc8Uk",
+];
+
+const nsdrIds = ["pL02HRFk2vo"];
+export const channels = [
+  {
+    id: "nsdr",
+    name: "NSDR",
+    ids: nsdrIds,
+  },
+  {
+    id: "luke",
+    name: "Luke Smith",
+    ids: lukeIds,
+  },
+  {
+    id: "curb",
+    name: "Curb",
+    ids: [...curbIds, ...curbWorldIds],
+  },
 ];

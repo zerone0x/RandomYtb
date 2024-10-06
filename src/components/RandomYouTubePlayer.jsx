@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import {
-  lukeIds,
-  curbIds,
-  curbWorldIds,
-  lukeChannelId,
-  curbChannelId,
-} from "../utils/data";
+import { channels, lukeChannelId, curbChannelId } from "../utils/data";
 import { debounce } from "../utils/util";
 import { useSelector } from "react-redux";
-
 const apiKey = "";
 const channelId = curbChannelId;
 function fetchVideoIds(channelId, apiKey) {
@@ -20,7 +13,6 @@ function fetchVideoIds(channelId, apiKey) {
     .then((data) => data.items.map((item) => item.id.videoId))
     .then((data) => console.log(data));
 }
-const larryIds = [...curbIds, ...curbWorldIds];
 function getRandomVideoId(videoIds) {
   return videoIds[Math.floor(Math.random() * videoIds.length)];
 }
@@ -49,7 +41,9 @@ function RandomYouTubePlayer({ setRange, range }) {
   const [parts, setParts] = useState([]);
 
   const handleClick = () => {
-    setVideoId(getRandomVideoId(channel === "luke" ? lukeIds : larryIds));
+    setVideoId(
+      getRandomVideoId(channels.find((channel) => channel.id === channel).ids),
+    );
     setRange("all");
   };
   const handleEarlier = () => {
@@ -62,8 +56,7 @@ function RandomYouTubePlayer({ setRange, range }) {
   };
 
   const handleLater = () => {
-    const laterPart = parts[2];
-    setVideoId(getRandomVideoId(laterPart));
+    setVideoId(getRandomVideoId(parts[2]));
     setRange("later");
   };
 
@@ -71,8 +64,14 @@ function RandomYouTubePlayer({ setRange, range }) {
     // Fetch videos from the channel
     // fetchVideoIds(channelId, apiKey)
     setIsLoading(true);
-    setParts(splitArrayIntoThreeParts(channel === "luke" ? lukeIds : larryIds));
-    setVideoId(getRandomVideoId(channel === "luke" ? lukeIds : larryIds));
+    setParts(
+      splitArrayIntoThreeParts(
+        channels.find((item) => item.id === channel).ids,
+      ),
+    );
+    setVideoId(
+      getRandomVideoId(channels.find((item) => item.id === channel).ids),
+    );
     setIsLoading(false);
   }, [channel]);
 
@@ -83,7 +82,7 @@ function RandomYouTubePlayer({ setRange, range }) {
   return (
     <section className="video-container">
       <iframe
-        title={channel === "luke" ? "Luke smith" : "Curb"}
+        title={channel}
         src={`https://www.youtube.com/embed/${videoId}`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

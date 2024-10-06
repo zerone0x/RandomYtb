@@ -7,11 +7,12 @@ import { debounce } from "../utils/util";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setChannel } from "../features/channel/channelSlice";
+import { channels } from "../utils/data";
 
 function Home() {
   const dispatch = useDispatch();
   const [range, setRange] = useState("all");
-  const channel = useSelector((state) => state.channel.channel);
+  const ChosenChannel = useSelector((state) => state.channel.channel);
   return (
     <div className="Home">
       <Helmet>
@@ -41,26 +42,18 @@ function Home() {
         <h1>Random YouTube Player</h1>
         <h2>Channels👇</h2>
         <div className="button-container">
-          <button
-            onClick={debounce(() => {
-              dispatch(setChannel("luke"));
-              setRange("all");
-            }, 3000)}
-            className={channel === "luke" ? "tab-active" : ""}
-            disabled={channel === "luke"}
-          >
-            Luke
-          </button>
-          <button
-            onClick={debounce(() => {
-              dispatch(setChannel("curb"));
-              setRange("all");
-            }, 3000)}
-            className={channel === "curb" ? "tab-active" : ""}
-            disabled={channel === "curb"}
-          >
-            Curb
-          </button>
+          {channels.map((channel) => (
+            <button
+              onClick={debounce(() => {
+                dispatch(setChannel(channel.id));
+                setRange("all");
+              }, 3000)}
+              className={ChosenChannel === channel.id ? "tab-active" : ""}
+              disabled={ChosenChannel === channel.id}
+            >
+              {channel.name}
+            </button>
+          ))}
         </div>
         <RandomYouTubePlayer setRange={setRange} range={range} />
       </>
