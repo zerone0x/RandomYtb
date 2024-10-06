@@ -42,17 +42,21 @@ function Home() {
         <h1>Random YouTube Player</h1>
         <h2>Channels👇</h2>
         <div className="button-container">
-          {channels.map((channel) => (
-            <button
-              onClick={debounce(() => {
-                dispatch(setChannel(channel.id));
-                setRange("all");
-              }, 3000)}
-              className={ChosenChannel === channel.id ? "tab-active" : ""}
-              disabled={ChosenChannel === channel.id}
-            >
-              {channel.name}
-            </button>
+          {channels.map((channel, index) => (
+            <>
+              <button
+                onClick={debounce(() => {
+                  dispatch(setChannel(channel.id));
+                  setRange("all");
+                }, 3000)}
+                className={ChosenChannel === channel.id ? "tab-active" : ""}
+                disabled={ChosenChannel === channel.id}
+                key={channel.id}
+              >
+                {channel.name}
+              </button>
+              {index !== channels.length - 1 && <span> 🕳️ </span>}
+            </>
           ))}
         </div>
         <RandomYouTubePlayer setRange={setRange} range={range} />
