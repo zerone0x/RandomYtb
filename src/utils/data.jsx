@@ -617,9 +617,14 @@ const curbWorldIds = [
   "qzMQniGRVnM",
   "PmPiogwc8Uk",
 ];
-
+const focusIds = ["vLEek3I3wac"];
 const nsdrIds = ["pL02HRFk2vo"];
 export const channels = [
+  {
+    id: "focus",
+    name: "Focus",
+    ids: focusIds,
+  },
   {
     id: "nsdr",
     name: "NSDR",

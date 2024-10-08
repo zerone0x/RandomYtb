@@ -42,7 +42,7 @@ function RandomYouTubePlayer({ setRange, range }) {
 
   const handleClick = () => {
     setVideoId(
-      getRandomVideoId(channels.find((channel) => channel.id === channel).ids),
+      getRandomVideoId(channels.find((item) => item.id === channel).ids),
     );
     setRange("all");
   };
