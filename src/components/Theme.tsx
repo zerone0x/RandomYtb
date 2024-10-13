@@ -10,7 +10,10 @@ export default function Theme() {
   useEffect(() => {
     const themeVariables = theme === "light" ? lightTheme : darkTheme;
     for (const key in themeVariables) {
-      document.documentElement.style.setProperty(key, themeVariables[key as keyof typeof themeVariables]);
+      document.documentElement.style.setProperty(
+        key,
+        themeVariables[key as keyof typeof themeVariables],
+      );
     }
   }, [theme]);
   return (

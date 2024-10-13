@@ -12,7 +12,9 @@ import { channels } from "../utils/data";
 function Home() {
   const dispatch = useDispatch();
   const [range, setRange] = useState("all");
-  const ChosenChannel = useSelector((state: { channel: { channel: string } }) => state.channel.channel);
+  const ChosenChannel = useSelector(
+    (state: { channel: { channel: string } }) => state.channel.channel,
+  );
   return (
     <div className="Home">
       <Helmet>

@@ -34,15 +34,25 @@ function splitArrayIntoThreeParts(arr: string[]) {
   return parts;
 }
 
-function RandomYouTubePlayer({ setRange, range }: { setRange: (range: string) => void; range: string }) {
-  const channel = useSelector((state: { channel: { channel: string } }) => state.channel.channel);
+function RandomYouTubePlayer({
+  setRange,
+  range,
+}: {
+  setRange: (range: string) => void;
+  range: string;
+}) {
+  const channel = useSelector(
+    (state: { channel: { channel: string } }) => state.channel.channel,
+  );
   const [videoId, setVideoId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [parts, setParts] = useState<string[][]>([]);
 
   const handleClick = () => {
     setVideoId(
-      getRandomVideoId(channels?.find((item) => item.id === channel)?.ids ?? []),
+      getRandomVideoId(
+        channels?.find((item) => item.id === channel)?.ids ?? [],
+      ),
     );
     setRange("all");
   };
@@ -70,7 +80,9 @@ function RandomYouTubePlayer({ setRange, range }: { setRange: (range: string) =>
       ),
     );
     setVideoId(
-      getRandomVideoId(channels?.find((item) => item.id === channel)?.ids ?? []),
+      getRandomVideoId(
+        channels?.find((item) => item.id === channel)?.ids ?? [],
+      ),
     );
     setIsLoading(false);
   }, [channel]);

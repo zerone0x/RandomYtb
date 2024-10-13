@@ -6,5 +6,5 @@ export function debounce(func: (...args: any[]) => void, wait: number) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(context, args), wait);
     toast.info("Loading...");
-  }
+  };
 }

@@ -619,11 +619,17 @@ const curbWorldIds = [
 ];
 const focusIds = ["vLEek3I3wac"];
 const nsdrIds = ["pL02HRFk2vo"];
+const pianoIds = ["Klqjebjw8n4"];
 export const channels = [
   {
     id: "focus",
     name: "Focus",
     ids: focusIds,
+  },
+  {
+    id: "piano",
+    name: "Piano",
+    ids: pianoIds,
   },
   {
     id: "nsdr",
