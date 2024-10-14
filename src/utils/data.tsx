@@ -617,7 +617,7 @@ const curbWorldIds = [
   "qzMQniGRVnM",
   "PmPiogwc8Uk",
 ];
-const focusIds = ["vLEek3I3wac"];
+const focusIds = ["vLEek3I3wac", '1_G60OdEzXs'];
 const nsdrIds = ["pL02HRFk2vo"];
 const pianoIds = ["Klqjebjw8n4"];
 export const channels = [
