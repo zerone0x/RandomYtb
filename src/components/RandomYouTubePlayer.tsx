@@ -5,15 +5,15 @@ import {
   lukeChannelId,
   curbChannelId,
   StorrorChannelId,
+  hubermanClipChannelId,
 } from "../utils/data";
 import { debounce } from "../utils/util";
 import { useSelector } from "react-redux";
 const apiKey = "";
-const channelId = StorrorChannelId;
-// const ytbApikey = import.meta.env.REACT_APP_YOUTUBE_API_KEY
+const channelId = hubermanClipChannelId;
 // function fetchVideoIds(channelId: string, apiKey: string) {
 //   return fetch(
-//     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CMgBEAA`,
+//     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CDIQAA`,
 //   )
 //     .then((response) => response.json())
 //     .then((data) => data.items.map((item: any) => item.id.videoId))

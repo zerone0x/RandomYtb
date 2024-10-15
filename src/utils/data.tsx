@@ -1,6 +1,7 @@
 export const lukeChannelId = "UC2eYFnH61tmytImy1mTYvhA";
 export const curbChannelId = "UCQZDGOgQ6usflGv1g8Jlf0w";
 export const StorrorChannelId = "UCdPui8EYr_sX6q1xNXCRPXg";
+export const hubermanClipChannelId = "UCkZjTZNvuxq1CYMS3cwZa1Q";
 export const lightTheme = {
   "--background-color": "#fffef8",
   "--text-color": "#445566",
@@ -872,7 +873,56 @@ const storrorIds = [
   "nxCTTCoDnwQ",
   "mge0bADbKm0",
 ];
-// channel: https://www.youtube.com/@STORROR/videos
+const hubermanIds = [
+    "WUXUYEvgm-s",
+    "ML-Rg0XIikA",
+    "TQN1sDEmabk",
+    "mML1TJFci7Y",
+    "E1Z9Lt1T-ko",
+    "o2hr4duBhhc",
+    "WfP8AQRcP-g",
+    "OoBkoLewZzU",
+    "BBqMqLyy9HQ",
+    "8fQ6-dtZ7Bo",
+    "KA5jIIScs8M",
+    "845b4xdl_QQ",
+    "-jtuH1H8dfI",
+    "syMuyOUQRJI",
+    "pFLH5-axGCY",
+    "zRXC2pEbj5w",
+    "XD1y3LhMk5k",
+    "eYQDHcs7pqM",
+    "8MfZPGpj4Sg",
+    "3aHds9Ncnus",
+    "ACi6K_LkShc",
+    "5JDJMTakiP4",
+    "2fM7uyq2wnk",
+    "vWTx9TZimB8",
+    "bELy17kYokg",
+    "O0NfM09bGuo",
+    "MAGLVVHD3qI",
+    "0xCwT-Eto4I",
+    "6SSxgAUfFug",
+    "epcmAkDgJ4Q",
+    "Zi9s0drG2II",
+    "GV5vSgpT6ho",
+    "OmhvFzqX_Ic",
+    "zYD3Sgpg5GM",
+    "lks5jdIqILU",
+    "0rp9PYP6lws",
+    "f7HLP96HVNM",
+    "PXaFYPzMcBc",
+    "CfHHSOjn4Z8",
+    "hEypv90GzDE",
+    "p7mE8JEh5cQ",
+    "WFnFobcpUmM",
+    "ehFKy0sR-xQ",
+    "-8nOPy9UFDI",
+    "nEN2ceXyi-s",
+    "NsNA8XHbQjQ",
+    "T4dser6ssp0",
+    "smjGAcyqDnk"
+];
 // https://www.youtube.com/@hubermanlab/search
 const focusIds = ["vLEek3I3wac", "1_G60OdEzXs"];
 const nsdrIds = ["pL02HRFk2vo"];
@@ -899,6 +949,11 @@ export const channels = [
     id: "nsdr",
     name: "NSDR",
     ids: nsdrIds,
+  },
+  {
+    id: "huberman",
+    name: "Huberman",
+    ids: hubermanIds,
   },
   {
     id: "storror",
