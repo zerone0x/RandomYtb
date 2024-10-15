@@ -47,10 +47,10 @@ function Home() {
           {channels.map((channel, index) => (
             <>
               <button
-                onClick={debounce(() => {
+                onClick={() => {
                   dispatch(setChannel(channel.id));
                   setRange("all");
-                }, 3000)}
+                }}
                 className={ChosenChannel === channel.id ? "tab-active" : ""}
                 disabled={ChosenChannel === channel.id}
                 key={channel.id}

@@ -107,19 +107,19 @@ function RandomYouTubePlayer({
       />
       <div className="btn-range-container">
         <button
-          onClick={debounce(handleEarlier, 3000)}
+          onClick={handleEarlier}
           className={range === "earlier" ? "tab-active" : ""}
         >
           Earlier
         </button>
         <button
-          onClick={debounce(handleMid, 3000)}
+          onClick={handleMid}
           className={range === "mid" ? "tab-active" : ""}
         >
           Mid
         </button>
         <button
-          onClick={debounce(handleLater, 3000)}
+          onClick={handleLater}
           className={range === "later" ? "tab-active" : ""}
         >
           Later
@@ -127,7 +127,7 @@ function RandomYouTubePlayer({
       </div>
       <div className="random-btn-container">
         <span>All range👇</span>
-        <button onClick={debounce(handleClick, 3000)} className="spin-button">
+        <button onClick={handleClick} className="spin-button">
           🎲
         </button>
       </div>
