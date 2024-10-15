@@ -877,7 +877,7 @@ const storrorIds = [
 const focusIds = ["vLEek3I3wac", "1_G60OdEzXs"];
 const nsdrIds = ["pL02HRFk2vo"];
 const pianoIds = ["Klqjebjwn4"];
-const sleepIds = [];
+const sleepIds = ['o-9T184mpY4'];
 const sports = [];
 export const channels = [
   {
@@ -885,11 +885,11 @@ export const channels = [
     name: "Focus",
     ids: focusIds,
   },
-  // {
-  //   id: "sleep",
-  //   name: "Sleep",
-  //   ids: sleepIds,
-  // },
+  {
+    id: "sleep",
+    name: "Sleep",
+    ids: sleepIds,
+  },
   {
     id: "piano",
     name: "Piano",
