@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import { channels, lukeChannelId, curbChannelId } from "../utils/data";
+import {
+  channels,
+  lukeChannelId,
+  curbChannelId,
+  StorrorChannelId,
+} from "../utils/data";
 import { debounce } from "../utils/util";
 import { useSelector } from "react-redux";
 const apiKey = "";
-const channelId = curbChannelId;
-// function fetchVideoIds(channelId, apiKey) {
+const channelId = StorrorChannelId;
+// const ytbApikey = import.meta.env.REACT_APP_YOUTUBE_API_KEY
+// function fetchVideoIds(channelId: string, apiKey: string) {
 //   return fetch(
-//     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CJADEAA`,
+//     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CMgBEAA`,
 //   )
 //     .then((response) => response.json())
-//     .then((data) => data.items.map((item) => item.id.videoId))
+//     .then((data) => data.items.map((item: any) => item.id.videoId))
 //     .then((data) => console.log(data));
 // }
 function getRandomVideoId(videoIds: string[]) {
@@ -72,7 +78,7 @@ function RandomYouTubePlayer({
 
   useEffect(() => {
     // Fetch videos from the channel
-    // fetchVideoIds(channelId, apiKey)
+    // fetchVideoIds(channelId, '')
     setIsLoading(true);
     setParts(
       splitArrayIntoThreeParts(
