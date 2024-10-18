@@ -6,19 +6,22 @@ import {
   curbChannelId,
   StorrorChannelId,
   hubermanClipChannelId,
+  LanaDelReyChannelId,
 } from "../utils/data";
 import { debounce } from "../utils/util";
 import { useSelector } from "react-redux";
-const apiKey = "";
-const channelId = hubermanClipChannelId;
-// function fetchVideoIds(channelId: string, apiKey: string) {
-//   return fetch(
-//     `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CDIQAA`,
-//   )
-//     .then((response) => response.json())
-//     .then((data) => data.items.map((item: any) => item.id.videoId))
-//     .then((data) => console.log(data));
-// }
+const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY;
+const channelId = StorrorChannelId;
+const isFetch = false;
+function fetchVideoIds() {
+  return fetch(
+    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=viewCount&type=video&maxResults=50`,
+    // `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=CDIQAA`,
+  )
+    .then((response) => response.json())
+    .then((data) => data.items.map((item: any) => item.id.videoId))
+    .then((data) => console.log(data));
+}
 function getRandomVideoId(videoIds: string[]) {
   return videoIds[Math.floor(Math.random() * videoIds.length)];
 }
@@ -78,7 +81,9 @@ function RandomYouTubePlayer({
 
   useEffect(() => {
     // Fetch videos from the channel
-    // fetchVideoIds(channelId, '')
+    if (isFetch) {
+      fetchVideoIds();
+    }
     setIsLoading(true);
     setParts(
       splitArrayIntoThreeParts(
