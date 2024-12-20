@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  channel: "curb",
+  channel: "focus",
 };
 
 const channelSlice = createSlice({
